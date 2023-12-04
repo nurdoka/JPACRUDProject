@@ -15,7 +15,7 @@
 <body>
 	<a href="home.do"> HOME </a>
 	<h1>Car Details</h1>
-	<div>
+	<div class="text-center">
 		<h3>${car.make}</h3>
 		<h5>Model: ${car.model}</h5>
 		<h5>Year: ${car.year}</h5>

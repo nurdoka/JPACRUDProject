@@ -22,19 +22,21 @@
 				value="Show Car" />
 		</form>
 	</div>
-	
+
 	<br>
-	<button onclick="window.location='addCarForm.do'">
-      Add a New Car
-    </button>
-    <br>
-    
+	<button onclick="window.location='addCarForm.do'">Add a New
+		Car</button>
+	<br>
+<div class="container mt-5">
 	<h2>List of All Cars</h2>
-	<table>
+	<table class="table table-bordered">
 		<thead>
-			<tr class="text=center">
+			<tr class="text-center">
 				<th>Make</th>
 				<th>Model</th>
+				<th>Year</th>
+				<th>Color</th>
+				<th>Body</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -47,13 +49,14 @@
 					<td>${car.model }</td>
 					<td>${car.year}</td>
 					<td>${car.color}</td>
+					<td>${car.body}</td>
 				</tr>
 
 			</c:forEach>
 
 		</tbody>
 	</table>
-
+</div>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
