@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,6 +19,7 @@ public class CarController {
 	@Autowired
 	CarDAO carDao;
 
+	@GetMapping("/homeMapping")
 	@RequestMapping(path = {"/","home.do"}, method = RequestMethod.GET)
 	public ModelAndView findAllCars() {
 		ModelAndView mv = new ModelAndView();
@@ -68,7 +70,7 @@ public class CarController {
 		car.setId(id);
 		
 		mv.addObject("car", carDao.update(id,car));
-		mv.setViewName("home");
+		mv.setViewName("show");
 		return mv;
 	}
 	
@@ -80,8 +82,9 @@ public class CarController {
 	}
 	
 	@RequestMapping(path = "updateCarForm.do", method = RequestMethod.GET)
-	public ModelAndView updateCarForm() {
+	public ModelAndView updateCarForm(@RequestParam("carId") int id) {
 		ModelAndView mv = new ModelAndView();
+		mv.addObject("car", carDao.findById(id));
 		mv.setViewName("updatecar");
 		return mv;
 	}
@@ -90,7 +93,7 @@ public class CarController {
 	public ModelAndView deleteCar(@RequestParam("carId") int carId) {
 		ModelAndView mv = new ModelAndView();
 		carDao.deleteById(carId);
-		mv.setViewName("home");
+		mv.setViewName("redirect:home.do");
 		return mv;
 	}
 	
