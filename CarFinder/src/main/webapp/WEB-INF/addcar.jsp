@@ -16,12 +16,22 @@
 	<h1>Enter car details</h1>
 	<div>
 		<form action="addCar.do" method="GET">
-			Car Make:  <input type="text" name="make" /> 
-			Car Model: <input type="text" name="model" /> 
-			Car Year:  <input type="text" name="year" /> 
-			Car Color: <input type="text" name="color" /> 
-			Car Body:  <input type="text" name="body" /> 
-					   <input type="submit" value="Add Car" />
+			<div class="form-group">
+				Car Make: <input type="text" name="make" />
+			</div>
+			<div class="form-group">
+				Car Model: <input type="text" name="model"  />
+			</div>
+			<div class="form-group">
+				Car Year: <input type="text" name="year" />
+			</div>
+			<div class="form-group">
+				Car Color: <input type="text" name="color"  />
+			</div>
+			<div class="form-group">
+				Car Body: <input type="text" name="body"  />
+			</div>
+			 <input type="submit" value="Add Car" />
 		</form>
 	</div>
 </body>
