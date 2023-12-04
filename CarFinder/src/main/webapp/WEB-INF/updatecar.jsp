@@ -15,7 +15,8 @@
 <body>
 	<h1>Enter car details to update</h1>
 	<div>
-		<form action="updateCar.do?id=${carId }" method="GET">
+		<form action="updateCar.do" method="GET">
+		<input type="hidden" name="carId" value="${param.carId}">
 			Car Make:  <input type="text" name="make" /> 
 			Car Model: <input type="text" name="model" /> 
 			Car Year:  <input type="text" name="year" /> 

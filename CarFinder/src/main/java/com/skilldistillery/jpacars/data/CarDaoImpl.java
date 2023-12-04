@@ -41,6 +41,7 @@ public class CarDaoImpl implements CarDAO {
 		  managed.setModel(car.getModel());
 		  managed.setYear(car.getYear());
 		  managed.setBody(car.getBody());
+		  managed.setColor(car.getColor());
 
 		  return managed;
 	}

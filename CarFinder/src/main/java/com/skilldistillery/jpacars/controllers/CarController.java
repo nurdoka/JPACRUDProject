@@ -56,7 +56,7 @@ public class CarController {
 	}
 	
 	@RequestMapping(path = "updateCar.do", method = RequestMethod.GET)
-	public ModelAndView updateCar(@RequestParam("id") int id,
+	public ModelAndView updateCar(@RequestParam("carId") int id,
 								@RequestParam("make") String make,
 							   @RequestParam("model") String model,
 							   @RequestParam("year") String year,
@@ -65,9 +65,10 @@ public class CarController {
 		ModelAndView mv = new ModelAndView();
 
 		Car car = new Car(make,model,year,color,body);
-
+		car.setId(id);
+		
 		mv.addObject("car", carDao.update(id,car));
-		mv.setViewName("show");
+		mv.setViewName("home");
 		return mv;
 	}
 	
