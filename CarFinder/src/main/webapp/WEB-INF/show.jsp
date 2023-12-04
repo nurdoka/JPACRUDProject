@@ -26,6 +26,7 @@
 		<button onclick="window.location='deleteCar.do?carId=${car.id }'">Delete
 			Car</button>
 	</div>
+	<br>
 	<div>
 		<button onclick="window.location='updateCarForm.do?carId=${car.id }'">Update
 			Car</button>

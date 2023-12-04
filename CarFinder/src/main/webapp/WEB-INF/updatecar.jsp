@@ -17,11 +17,21 @@
 	<div>
 		<form action="updateCar.do" method="GET">
 		<input type="hidden" name="carId" value="${param.carId}">
-			Car Make:  <input type="text" name="make" value="${car.make }"/> 
+		<div class="form-group">
+			Car Make:  <input  type="text" name="make" value="${car.make }"/> 
+		</div>
+		<div class="form-group">
 			Car Model: <input type="text" name="model" value="${car.model }"/> 
+		</div>
+		<div class="form-group">
 			Car Year:  <input type="text" name="year" value="${car.year }"/> 
+		</div>
+		<div class="form-group">
 			Car Color: <input type="text" name="color" value="${car.color }"/> 
+		</div>
+		<div class="form-group">
 			Car Body:  <input type="text" name="body" value="${car.body }"/> 
+		</div>
 					   <input type="submit" value="Update Car" />
 		</form>
 	</div>

@@ -15,7 +15,7 @@
 </head>
 <body>
 	<div class="container text-center">
-		<h1>Car Finder</h1>
+		<h1>CAR FINDER</h1>
 
 		<form action="getCar.do" method="GET">
 			Car ID: <input type="text" name="carId" /> <input type="submit"
@@ -29,7 +29,7 @@
 	<br>
 <div class="container mt-5">
 	<h2>List of All Cars</h2>
-	<table class="table table-bordered">
+	<table class="table table-bordered table-hover">
 		<thead>
 			<tr class="text-center">
 				<th>Make</th>
