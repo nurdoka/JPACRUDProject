@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.jpacars.data.CarDAO;
@@ -27,4 +28,70 @@ public class CarController {
 		mv.setViewName("home");
 		return mv;
 	}
+	
+	@RequestMapping(path = "getCar.do", method = RequestMethod.GET)
+	public ModelAndView findById(@RequestParam("carId") int carId) {
+		ModelAndView mv = new ModelAndView();
+
+		Car car = carDao.findById(carId);
+
+		mv.addObject("car", car);
+		mv.setViewName("show");
+		return mv;
+	}
+	
+	@RequestMapping(path = "addCar.do", method = RequestMethod.GET)
+	public ModelAndView addCar(@RequestParam("make") String make,
+							   @RequestParam("model") String model,
+							   @RequestParam("year") String year,
+							   @RequestParam("color") String color,
+							   @RequestParam("body") String body) {
+		ModelAndView mv = new ModelAndView();
+
+		Car car = new Car(make,model,year,color,body);
+
+		mv.addObject("car", carDao.create(car));
+		mv.setViewName("show");
+		return mv;
+	}
+	
+	@RequestMapping(path = "updateCar.do", method = RequestMethod.GET)
+	public ModelAndView updateCar(@RequestParam("id") int id,
+								@RequestParam("make") String make,
+							   @RequestParam("model") String model,
+							   @RequestParam("year") String year,
+							   @RequestParam("color") String color,
+							   @RequestParam("body") String body) {
+		ModelAndView mv = new ModelAndView();
+
+		Car car = new Car(make,model,year,color,body);
+
+		mv.addObject("car", carDao.update(id,car));
+		mv.setViewName("show");
+		return mv;
+	}
+	
+	@RequestMapping(path = "addCarForm.do", method = RequestMethod.GET)
+	public ModelAndView carForm() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("addcar");
+		return mv;
+	}
+	
+	@RequestMapping(path = "updateCarForm.do", method = RequestMethod.GET)
+	public ModelAndView updateCarForm() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("updatecar");
+		return mv;
+	}
+	
+	@RequestMapping(path = "deleteCar.do", method = RequestMethod.GET)
+	public ModelAndView deleteCar(@RequestParam("carId") int carId) {
+		ModelAndView mv = new ModelAndView();
+		carDao.deleteById(carId);
+		mv.setViewName("home");
+		return mv;
+	}
+	
+
 }

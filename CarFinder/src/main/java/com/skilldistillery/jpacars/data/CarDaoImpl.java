@@ -10,8 +10,8 @@ import com.skilldistillery.jpacars.entities.Car;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 
-@Service
 @Transactional
+@Service
 public class CarDaoImpl implements CarDAO {
 	
 	@PersistenceContext
@@ -19,8 +19,7 @@ public class CarDaoImpl implements CarDAO {
 
 	@Override
 	public Car findById(int carId) {
-		// TODO Auto-generated method stub
-		return null;
+		return em.find(Car.class, carId);
 	}
 
 	@Override
@@ -31,20 +30,31 @@ public class CarDaoImpl implements CarDAO {
 
 	@Override
 	public Car create(Car car) {
-		// TODO Auto-generated method stub
-		return null;
+	    em.persist(car);
+		return car;
 	}
 
 	@Override
 	public Car update(int carId, Car car) {
-		// TODO Auto-generated method stub
-		return null;
+		Car managed = em.find(Car.class, carId);
+		  managed.setMake(car.getMake());
+		  managed.setModel(car.getModel());
+		  managed.setYear(car.getYear());
+		  managed.setBody(car.getBody());
+
+		  return managed;
 	}
 
 	@Override
 	public boolean deleteById(int carId) {
-		// TODO Auto-generated method stub
-		return false;
+		boolean isDeleted = false;
+		Car car = em.find(Car.class, carId);
+
+		if (car != null) {
+			em.remove(car);
+			isDeleted = true;
+		}
+		return isDeleted;
 	}
 
 }

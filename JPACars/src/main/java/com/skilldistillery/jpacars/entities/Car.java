@@ -15,9 +15,19 @@ public class Car {
 	private String make;
 	private String model;
 	private String year;
+	private String color;
 	private String body;
 	
 	public Car() {
+	}
+
+	public Car(String make, String model, String year, String color, String body) {
+		super();
+		this.make = make;
+		this.model = model;
+		this.year = year;
+		this.color = color;
+		this.body = body;
 	}
 
 	public int getId() {
@@ -52,6 +62,14 @@ public class Car {
 		this.year = year;
 	}
 
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+
 	public String getBody() {
 		return body;
 	}
@@ -62,7 +80,8 @@ public class Car {
 
 	@Override
 	public String toString() {
-		return "Car [id=" + id + ", make=" + make + ", model=" + model + ", year=" + year + ", body=" + body + "]";
+		return "Car [id=" + id + ", make=" + make + ", model=" + model + ", year=" + year + ", color=" + color
+				+ ", body=" + body + "]";
 	}
 
 	@Override
