@@ -43,14 +43,8 @@ public class CarController {
 	}
 	
 	@RequestMapping(path = "addCar.do", method = RequestMethod.GET)
-	public ModelAndView addCar(@RequestParam("make") String make,
-							   @RequestParam("model") String model,
-							   @RequestParam("year") String year,
-							   @RequestParam("color") String color,
-							   @RequestParam("body") String body) {
+	public ModelAndView addCar(Car car) {
 		ModelAndView mv = new ModelAndView();
-
-		Car car = new Car(make,model,year,color,body);
 
 		mv.addObject("car", carDao.create(car));
 		mv.setViewName("show");
@@ -58,16 +52,8 @@ public class CarController {
 	}
 	
 	@RequestMapping(path = "updateCar.do", method = RequestMethod.GET)
-	public ModelAndView updateCar(@RequestParam("carId") int id,
-								@RequestParam("make") String make,
-							   @RequestParam("model") String model,
-							   @RequestParam("year") String year,
-							   @RequestParam("color") String color,
-							   @RequestParam("body") String body) {
+	public ModelAndView updateCar(@RequestParam("carId") int id, Car car) {
 		ModelAndView mv = new ModelAndView();
-
-		Car car = new Car(make,model,year,color,body);
-		car.setId(id);
 		
 		mv.addObject("car", carDao.update(id,car));
 		mv.setViewName("show");

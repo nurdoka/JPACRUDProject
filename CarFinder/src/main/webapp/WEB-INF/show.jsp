@@ -14,22 +14,27 @@
 </head>
 <body>
 	<a href="home.do"> HOME </a>
-	<h1>Car Details</h1>
 	<div class="text-center">
+	<h1>Car Details</h1>
+	
 		<h3>${car.make}</h3>
 		<h5>Model: ${car.model}</h5>
 		<h5>Year: ${car.year}</h5>
 		<h5>Color: ${car.color}</h5>
 		<h5>Body: ${car.body }</h5>
 	</div>
-	<div>
-		<button onclick="window.location='deleteCar.do?carId=${car.id }'">Delete
+	
+		<div class="container mt-5">
+		<button class="btn btn-primary"
+			onclick="window.location='updateCarForm.do?carId=${car.id }'">Update
 			Car</button>
 	</div>
-	<br>
-	<div>
-		<button onclick="window.location='updateCarForm.do?carId=${car.id }'">Update
+	
+	<div class="container mt-5">
+		<button class="btn btn-danger"
+			onclick="window.location='deleteCar.do?carId=${car.id }'">Delete
 			Car</button>
 	</div>
+
 </body>
 </html>

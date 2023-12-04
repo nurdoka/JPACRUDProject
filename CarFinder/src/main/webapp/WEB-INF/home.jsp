@@ -24,7 +24,7 @@
 	</div>
 
 	<br>
-	<button onclick="window.location='addCarForm.do'">Add a New
+	<button class="btn btn-success" onclick="window.location='addCarForm.do'">Add a New
 		Car</button>
 	<br>
 <div class="container mt-5">
